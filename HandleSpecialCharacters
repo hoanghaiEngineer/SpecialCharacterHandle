@@ -1,0 +1,21 @@
+ private string HandleSpecialCharacters(string inputStr)
+	    {
+	        if (string.IsNullOrEmpty(inputStr))
+	        {
+	            return "";
+	        }
+            //mot dau ngoac kep
+	        if (inputStr.Contains("\""))
+	        {
+                //doi thanh ""
+	            inputStr = inputStr.Replace("\"", "\"\"");
+	        }
+            //xuong dong, dau ','
+	        if (inputStr.Contains(",") || inputStr.Contains("\n"))
+	        {
+                // Boc chuoi lai trong 2 dau ngoac kep "a b c \n d e f", "abc,def"
+                inputStr = string.Format("\"{0}\"", inputStr);
+	        }
+
+	        return inputStr;
+	    }
